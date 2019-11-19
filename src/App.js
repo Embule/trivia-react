@@ -3,6 +3,8 @@ import Start from './components/Start';
 import { Quiz } from './components/Quiz';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
+import Highscore from './components/Highscore';
+
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
           <Route path='/quiz' exact component={Quiz} />
         </Switch>
       </Router>
+      <Highscore/>
     </div>
   );
 }
