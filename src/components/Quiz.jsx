@@ -5,12 +5,7 @@ import Question from './Question';
 
 export class Quiz extends React.Component {
 
-    constructor(props) {
-        super(props)
-        this.state = { current: 0, dataSet: [], correct: 0, lives: 3 }
-        // this.handleClick = this.handleClick.bind(this)
-
-    } // end constructor
+    state = {questions: []}
 
     componentDidMount() {
         getQuestions().then(dataSet => {
