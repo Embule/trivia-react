@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 import {fetchAllQuestions, postQuestions} from '../service/apiclient';
+=======
+import {getQuestions} from '../service/ServiceClient';
+import Question from './Question';
+>>>>>>> 5292d22bafd4cd45ce6c697f6bd89e5735cc4186
 
 export class Quiz extends React.Component {
 
     state = {questions: []}
 
     componentDidMount() {
+<<<<<<< HEAD
         this.fetchDataList();
     }
 
@@ -32,6 +38,29 @@ export class Quiz extends React.Component {
     // }
 
 
+=======
+        getQuestions().then(dataSet => {
+            this.setState({dataSet});
+            console.log(dataSet);
+        })       
+    }
+
+    render() {
+        const questions = this.state.dataSet
+        .map((question)=>{
+            return <Question {...this.props} question={question} key={question._id} />
+        })
+        return (            
+            <div>
+                moi
+                {questions}
+                {/* <ScoreArea correct={this.state.correct} lives={this.state.lives} />
+                <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} /> */}
+            </div>
+        )
+    }
+}
+>>>>>>> 5292d22bafd4cd45ce6c697f6bd89e5735cc4186
 //     handleClick(choice) {
 //         if (choice === this.state.dataSet[this.state.current].correct) {
 //             this.setState({ correct: this.state.correct + 1 })
@@ -48,17 +77,7 @@ export class Quiz extends React.Component {
 //         }
 //     }
 
-    render() {
-        return (
-            
-            <div>
-                moi
-                {/* <ScoreArea correct={this.state.correct} lives={this.state.lives} />
-                <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} /> */}
-            </div>
-        )
-    }
-}
+
 
 // function Question(props) {
 //     var style = {
