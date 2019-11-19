@@ -1,14 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import Start from './components/Start';
+import { Quiz } from './components/Quiz';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Highscore from './components/Highscore';
-import Card from './components/Card';
+
 
 function App() {
   return (
     <div className="App">
+      <Router>
+        <Switch>
+          <Route path='/' exact component={Start} />
+          <Route path='/quiz' exact component={Quiz} />
+        </Switch>
+      </Router>
       <Highscore/>
-   <Card/>
     </div>
   );
 }
