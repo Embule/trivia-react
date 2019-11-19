@@ -1,44 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
-import {fetchAllQuestions, postQuestions} from '../service/apiclient';
-=======
 import {getQuestions} from '../service/ServiceClient';
 import Question from './Question';
->>>>>>> 5292d22bafd4cd45ce6c697f6bd89e5735cc4186
 
 export class Quiz extends React.Component {
 
     state = {questions: []}
 
     componentDidMount() {
-<<<<<<< HEAD
-        this.fetchDataList();
-    }
-
-    fetchDataList = () => {
-        fetchAllQuestions().then(questions => {
-            this.setState({questions});
-            console.log(this.state)
-        })
-    }
-
-    // constructor(props) {
-    //     super(props)
-    //     this.state = { current: 0, dataSet: [], correct: 0, lives: 3 }
-        // this.handleClick = this.handleClick.bind(this)
-// } 
-// end constructor
-
-    // componentDidMount() {
-    //     fetch('/api/questions')
-    //     .then(res => {return res.json()})
-    //     .then(data => this.setState( { dataSet: data }))
-    //     .then(console.log(this.state.dataSet))
-    // }
-
-
-=======
         getQuestions().then(dataSet => {
             this.setState({dataSet});
             console.log(dataSet);
@@ -60,7 +29,6 @@ export class Quiz extends React.Component {
         )
     }
 }
->>>>>>> 5292d22bafd4cd45ce6c697f6bd89e5735cc4186
 //     handleClick(choice) {
 //         if (choice === this.state.dataSet[this.state.current].correct) {
 //             this.setState({ correct: this.state.correct + 1 })
