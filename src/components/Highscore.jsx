@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchAllScores } from '../service';
+import { fetchAllScores, postScore } from '../service';
 
 export default class Highscore extends React.Component {
 
@@ -11,7 +11,7 @@ export default class Highscore extends React.Component {
   componentDidMount() {
     this.fetchScoreList();
   }
-
+  //fetch data from the server
   fetchScoreList = () => {
     fetchAllScores().then(allScores => {
       this.setState({ scores: allScores });
@@ -19,31 +19,37 @@ export default class Highscore extends React.Component {
     })
   }
 
+  addScore = score => {
+    postScore(score).then(vastaus => {
+      this.fetchScoreList();
+    })
+  }
+  //error handling 
   render() {
     if (!this.state.scores) {
       return <p>Loading...</p>
-  }
-   var scorerows = this.state.scores.map(i=> <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
-     
+    }
+    var scorerows = this.state.scores.map(i => <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
+    const Score = ({score}) => {
     return (
-     
+
       <div className="highscore">
-        <h1>Onnea pääsit loppuun! </h1>
-        <h2>Pisteet:</h2>
-        <p></p>
+        <h1>Onnea pääsit loppuun ja valmistut Academysta! </h1>
+        <h2>Pisteesi:</h2>
+        <p>{score}</p>
         <h3>Top-lista</h3>
         <table>
           <tbody>
             <tr>
               <th>Nimi</th>
               <th>Pistemäärä</th>
-              </tr>
-              {scorerows}
+            </tr>
+            {scorerows}
           </tbody>
         </table>
-        <a className="btn" href="/">Uusi Peli</a>
+        <a className="btn" class="scorebutton" href="/">Uusi Peli</a>
       </div>
-    )
+    )}
   }
 }
 
