@@ -4,6 +4,22 @@ import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
 import Progress from './Progress';
 
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    while (0 !== currentIndex) {
+
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
 export class Quiz extends React.Component {
 
     constructor(props) {
@@ -20,6 +36,7 @@ export class Quiz extends React.Component {
 
     fetchDataList = () => {
         fetchAllData().then(allData => {
+            shuffle(allData);
             this.setState({ dataSet: allData });
             console.log(this.state)
             if (!this.props.location) {
@@ -38,16 +55,17 @@ export class Quiz extends React.Component {
             if (this.state.lives > 1) {
                 this.setState({ lives: this.state.lives - 1 })
             } else {
+                this.setState({ lives: this.state.lives - 1 })
                 // window.alert("Kuolit. 18 000 €");
                 //TÄHÄN SCOREN JA NIMEN POSTAUS?
                 this.props.history.push('/highscore', this.state.correct)
             }
         }
 
-        if (this.state.current === 9) {
-            this.setState({ current: 0 })
-            this.setState({ lives: 0 })
-            this.setState({ score: 0 })
+        if (this.state.current === 19) {
+                // window.alert("Kuolit. 18 000 €");
+                //TÄHÄN SCOREN JA NIMEN POSTAUS?
+            this.props.history.push('/highscore', this.state.correct)
         } else {
             this.setState({ current: this.state.current + 1 })
         }
