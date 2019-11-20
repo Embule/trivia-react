@@ -9,6 +9,7 @@ const Score = ({ refresh, score }) => {
       <h2>Top-lista</h2>
       <p></p>
       <table>
+        <tbody>
         <tr>
           <th>Nimi</th>
           <th>Pistemäärä</th>
@@ -17,6 +18,7 @@ const Score = ({ refresh, score }) => {
           {/* <td>{top.name}</td>
           <td>{top.score}</td> */}
         </tr>
+        </tbody>
       </table>
       <button onClick={refresh}>Uusi Peli</button>
     </div>
