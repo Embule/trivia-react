@@ -1,15 +1,18 @@
 import React from 'react';
 import { fetchAllData } from '../service';
-import QuizArea from './QuizArea'
-import ScoreArea from './ScoreArea'
+import QuizArea from './QuizArea';
+import ScoreArea from './ScoreArea';
+import Progress from './Progress';
 
 export class Quiz extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { current: 0, dataSet: [], correct: 0, lives: 3, name: '' }
-        this.handleClick = this.handleClick.bind(this)
-    }
+
+        this.state = { current: 0, dataSet: [], score: 0, lives: 3, currentSeconds: 10, name: '' }
+        this.handleClick = this.handleClick.bind(this);
+        this.renderTime = this.renderTime.bind(this);
+    } 
 
     componentDidMount() {
         this.fetchDataList();
@@ -30,7 +33,7 @@ export class Quiz extends React.Component {
         console.log(choice)
         console.log(this.state);
         if (choice === this.state.dataSet[this.state.current].correct_answer) {
-            this.setState({ correct: this.state.correct + 1 })
+            this.setState({ score: this.state.score + 10 + this.state.currentSeconds })
         } else {
             if (this.state.lives > 1) {
                 this.setState({ lives: this.state.lives - 1 })
@@ -44,22 +47,40 @@ export class Quiz extends React.Component {
         if (this.state.current === 9) {
             this.setState({ current: 0 })
             this.setState({ lives: 0 })
-            this.setState({ correct: 0 })
+            this.setState({ score: 0 })
         } else {
             this.setState({ current: this.state.current + 1 })
         }
     }
 
+    // Renderer callback with condition
+    renderTime = ({ seconds, completed }) => {
+        if (completed) {
+            // Render a time out text
+            return <TimeOut />;
+        } else {
+            this.state.currentSeconds = seconds;
+            // Render a countdown
+            return <span>{seconds}</span>;
+        }
+    };
+
     render() {
         return (
             <div>
-                <h1>Onnea peliin, {this.state.name}!</h1>
-                <ScoreArea correct={this.state.correct} lives={this.state.lives} />
+            <div className="progressArea">
+                <Progress currentQuestion={this.state.current} />
+            </div>
+            <ScoreArea score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
+            <h1>Onnea peliin, {this.state.name}!</h1>
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
             </div>
         )
     }
 }
+
+const TimeOut = () => <span>Time out!</span>;
+
 // function Question(props) {
 //     var style = {
 //         color: "red",
