@@ -19,24 +19,24 @@ export default class Highscore extends React.Component {
     })
   }
 
-  addScore = score => {
-    postScore(score).then(vastaus => {
-      this.fetchScoreList();
-    })
-  }
+  // addScore = score => {
+  //   postScore(score).then(vastaus => {
+  //     this.fetchScoreList();
+  //   })
+  // }
   //error handling 
   render() {
     if (!this.state.scores) {
       return <p>Loading...</p>
     }
     var scorerows = this.state.scores.map(i => <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
-    const Score = ({score}) => {
+    // const Score = ({score}) => {
     return (
 
       <div className="highscore">
         <h1>Onnea pääsit loppuun ja valmistut Academysta! </h1>
         <h2>Pisteesi:</h2>
-        <p>{score}</p>
+        {/* <p>{score}</p> */}
         <h3>Top-lista</h3>
         <table>
           <tbody>
@@ -51,7 +51,7 @@ export default class Highscore extends React.Component {
       </div>
     )}
   }
-}
+// }
 
 
 //lisäää pelin loppu///////////////
