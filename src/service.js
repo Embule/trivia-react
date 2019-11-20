@@ -5,10 +5,17 @@ export const fetchAllData = () => {
         .then(resp => resp.json())
 }
 
-// export const postQuestion = (quote) => {
-//     return fetch(url, {
-//         method: 'POST',
-//         headers: { 'Content-Type': 'application/json' },
-//         body: JSON.stringify(question)
-//     })
-// }
+const scoreUrl = '/api/scores';
+
+export const fetchAllScores = () => {
+    return fetch(scoreUrl)
+.then(resp => resp.json())
+}
+
+export const postScore = (score) => {
+    return fetch(scoreUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(score)
+    })
+}

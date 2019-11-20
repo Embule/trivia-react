@@ -1,31 +1,52 @@
 import React from 'react';
+import { fetchAllScores } from '../service';
 
+export default class Highscore extends React.Component {
 
-const Score = ({ refresh, score }) => {
-  return (
-    <div className="scoreCard">
-      <h1>Pisteesi</h1>
-      <p>{score}200</p>
-      <h2>Top-lista</h2>
-      <p></p>
-      <table>
-        <tbody>
-        <tr>
-          <th>Nimi</th>
-          <th>Pistemäärä</th>
-        </tr>
-        <tr>
-          {/* <td>{top.name}</td>
-          <td>{top.score}</td> */}
-        </tr>
-        </tbody>
-      </table>
-      <button onClick={refresh}>Uusi Peli</button>
-    </div>
-  )
+  constructor(props) {
+    super(props)
+    this.state = { scores: [] }
+  }
+
+  componentDidMount() {
+    this.fetchScoreList();
+  }
+
+  fetchScoreList = () => {
+    fetchAllScores().then(allScores => {
+      this.setState({ scores: allScores });
+      console.log(this.state.scores)
+    })
+  }
+
+  render() {
+    if (!this.state.scores) {
+      return <p>Loading...</p>
+  }
+   var scorerows = this.state.scores.map(i=> <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
+     
+    return (
+     
+      <div className="highscore">
+        <h1>Onnea pääsit loppuun! </h1>
+        <h2>Pisteet:</h2>
+        <p></p>
+        <h3>Top-lista</h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>Nimi</th>
+              <th>Pistemäärä</th>
+              </tr>
+              {scorerows}
+          </tbody>
+        </table>
+        <a className="btn" href="/">Uusi Peli</a>
+      </div>
+    )
+  }
 }
 
-export default Score;
 
 //lisäää pelin loppu///////////////
 // function restartGame(props) {
