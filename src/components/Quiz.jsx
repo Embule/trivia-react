@@ -3,8 +3,6 @@ import { fetchAllData } from '../service';
 import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
 import Progress from './Progress';
-import {postScore} from '../service';
-import Highscore from './Highscore';
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -44,9 +42,9 @@ export class Quiz extends React.Component {
             console.log(this.state)
             if (!this.props.location) {
                 return <p>Loading...</p>
-            }
-            this.setState({ name: this.props.location.state })
+            }   
         })
+        this.setState({ name: this.props.location.state })
     }
 
     handleClick(choice) {
@@ -61,7 +59,7 @@ export class Quiz extends React.Component {
                 this.setState({ lives: this.state.lives - 1 })
                 // window.alert("Kuolit. 18 000 €");
                 //TÄHÄN SCOREN JA NIMEN POSTAUS?
-                this.props.history.push('/highscore', this.state.correct)
+                this.props.history.push('/highscore', this.state.correct, this.state.name)
             }
         }
 
@@ -75,7 +73,7 @@ export class Quiz extends React.Component {
             // }
             // window.alert("Kuolit. 18 000 €");
             //TÄHÄN SCOREN JA NIMEN POSTAUS?
-            this.props.history.push('/highscore', this.state.correct)
+            this.props.history.push('/highscore', this.state.correct, this.state.name)
         } else {
             this.setState({ current: this.state.current + 1 })
         }
@@ -104,7 +102,7 @@ export class Quiz extends React.Component {
             <ScoreArea countdownRef={this.countdownRef} score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
             <h1>Onnea peliin, {this.state.name}!</h1>
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
-                <Highscore addCallback={this.addScore}/>
+                {/* <Highscore addCallback={this.addScore}/> */}
             </div>
         )
     }

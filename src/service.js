@@ -12,10 +12,10 @@ export const fetchAllScores = () => {
 .then(resp => resp.json())
 }
 
-export const postScore = (score) => {
+export const postScore = (scores) => {
     return fetch(scoreUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(score)
+        body: JSON.stringify(scores)
     })
 }

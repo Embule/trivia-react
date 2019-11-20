@@ -50,7 +50,7 @@
   justify-content: center;
 }
 
-.scorebutton {
+#scorebutton {
   display: block;
     width: 115px;
     height: 25px;
@@ -61,7 +61,7 @@
     color: white;
     font-weight: bold;
 }
-.scorebutton:hover {
+#scorebutton:hover {
   background-color: rgb(28, 79, 92);
 }
 
