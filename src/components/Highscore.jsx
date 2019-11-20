@@ -15,7 +15,9 @@ export default class Highscore extends React.Component {
   fetchScoreList = () => {
     fetchAllScores().then(allScores => {
       this.setState({ scores: allScores });
-      console.log(this.state.scores)
+ 
+      allScores.sort(function(a,b){return a.score < b.score});
+      console.log(allScores);
     })
   }
 
@@ -30,13 +32,12 @@ export default class Highscore extends React.Component {
       return <p>Loading...</p>
     }
     var scorerows = this.state.scores.map(i => <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
-    // const Score = ({score}) => {
+
     return (
 
-      <div className="highscore">
+      <div className="highscore" align="center">
         <h1>Onnea pääsit loppuun ja valmistut Academysta! </h1>
         <h2>Pisteesi:</h2>
-        {/* <p>{score}</p> */}
         <h3>Top-lista</h3>
         <table>
           <tbody>

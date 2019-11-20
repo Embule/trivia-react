@@ -30,13 +30,8 @@ export class Quiz extends React.Component {
         this.state = { current: 0, dataSet: [], score: 0, lives: 3, currentSeconds: 10, name: '' }
         this.handleClick = this.handleClick.bind(this);
         this.renderTime = this.renderTime.bind(this);
-<<<<<<< HEAD
-    }
-=======
-
         this.countdownRef = React.createRef();
     } 
->>>>>>> e7f991fce1b2b2e8dbb48b6beb4201e7090f6c6a
 
     componentDidMount() {
         this.fetchDataList();
@@ -103,19 +98,11 @@ export class Quiz extends React.Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
-                <div className="progressArea">
-                    <Progress currentQuestion={this.state.current} />
-                </div>
-                <ScoreArea score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
-                <h1>Onnea peliin, {this.state.name}!</h1>
-=======
             <div className="progressArea">
                 <Progress currentQuestion={this.state.current} />
             </div>
             <ScoreArea countdownRef={this.countdownRef} score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
             <h1>Onnea peliin, {this.state.name}!</h1>
->>>>>>> e7f991fce1b2b2e8dbb48b6beb4201e7090f6c6a
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
                 <Highscore addCallback={this.addScore}/>
             </div>
