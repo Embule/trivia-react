@@ -1,15 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-class Question extends Component {
-    render() {
-        const {question, answers} = this.props.question;
-        return (
-            <div>
-            <p>{question}</p>
-            <p>{answers}</p>
-            </div>
-        );
+export default function Question(props) {
+    var style = {
+        color: "red",
     }
+    if (!props.dataSet) {
+        return <p>Loading...</p>
+    }
+    return (
+        <h1 style={style}>{props.dataSet.question}</h1>
+    )
 }
-
-export default Question;
