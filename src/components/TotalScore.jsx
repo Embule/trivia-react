@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function TotalCorrect(props) {
+export default function TotalScore(props) {
     var style = {
         display: "inline-block",
         padding: "1em",
@@ -8,6 +8,6 @@ export default function TotalCorrect(props) {
         margin: "0 1em 0 0"
     }
     return (
-        <h2 style={style}>Oikeita vastauksia: {props.correct}</h2>
+        <h2 style={style}>Pisteet: {props.score}</h2>
     )
 }
