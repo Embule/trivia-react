@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { fetchAllData } from '../service';
 import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
+import Progress from './Progress';
 
 export class Quiz extends React.Component {
 
@@ -61,7 +62,10 @@ export class Quiz extends React.Component {
         return (
 
             <div>
-                <ScoreArea score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
+            <div className="progressArea">
+                <Progress currentQuestion={this.state.current} />
+            </div>
+            <ScoreArea score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
             </div>
         )
