@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fetchAllData } from '../service';
-import QuizArea from './QuizArea'
-import ScoreArea from './ScoreArea'
+import QuizArea from './QuizArea';
+import ScoreArea from './ScoreArea';
+import Progress from './Progress';
 
 export class Quiz extends React.Component {
 
@@ -48,6 +49,9 @@ export class Quiz extends React.Component {
         return (
 
             <div>
+            <div className="progressArea">
+                <Progress currentQuestion={this.state.current} />
+            </div>
                 <ScoreArea correct={this.state.correct} lives={this.state.lives} />
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
             </div>
