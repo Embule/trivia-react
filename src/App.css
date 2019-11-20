@@ -20,3 +20,32 @@
 .App-link {
   color: #09d3ac;
 }
+
+.progress {
+  position: relative;
+  transition: width .4s ease;
+  margin-bottom: 1em;
+  background: rgb(181, 181, 181);
+  border-radius: 0;
+  width: 100%;
+  height: 2em;
+}
+
+.progressBar {
+  background-color: #1d77cc;
+  height: 2em;
+}
+.questioncounter {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  font-weight: normal;
+  color: #fff;
+  height: 100%;
+  font-size:1.25em;
+  margin: auto .5em;
+  letter-spacing:.025em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
