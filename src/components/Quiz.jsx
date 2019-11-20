@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { fetchAllData } from '../service';
 import QuizArea from './QuizArea'
 import ScoreArea from './ScoreArea'
@@ -8,9 +7,9 @@ export class Quiz extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { current: 0, dataSet: [], correct: 0, lives: 3 }
+        this.state = { current: 0, dataSet: [], correct: 0, lives: 3, name: '' }
         this.handleClick = this.handleClick.bind(this)
-    } 
+    }
 
     componentDidMount() {
         this.fetchDataList();
@@ -20,18 +19,25 @@ export class Quiz extends React.Component {
         fetchAllData().then(allData => {
             this.setState({ dataSet: allData });
             console.log(this.state)
+            if (!this.props.location) {
+                return <p>Loading...</p>
+            }
+            this.setState({ name: this.props.location.state })
         })
     }
 
     handleClick(choice) {
         console.log(choice)
+        console.log(this.state);
         if (choice === this.state.dataSet[this.state.current].correct_answer) {
             this.setState({ correct: this.state.correct + 1 })
         } else {
-            if ( this.state.lives > 1) {
-            this.setState({ lives: this.state.lives - 1 })
+            if (this.state.lives > 1) {
+                this.setState({ lives: this.state.lives - 1 })
             } else {
-                window.alert("Kuolit. 18 000 €");
+                // window.alert("Kuolit. 18 000 €");
+                //TÄHÄN SCOREN JA NIMEN POSTAUS?
+                this.props.history.push('/highscore', this.state.correct)
             }
         }
 
@@ -46,8 +52,8 @@ export class Quiz extends React.Component {
 
     render() {
         return (
-
             <div>
+                <h1>Onnea peliin, {this.state.name}!</h1>
                 <ScoreArea correct={this.state.correct} lives={this.state.lives} />
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
             </div>
@@ -152,7 +158,7 @@ export class Quiz extends React.Component {
 //     )
 // }
 
-ReactDOM.render(
-    <Quiz />,
-    document.getElementById("root")
-)
+// ReactDOM.render(
+//     <Quiz />,
+//     document.getElementById("root")
+// )
