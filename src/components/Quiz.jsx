@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { fetchAllData } from '../service';
 import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
@@ -9,7 +8,8 @@ export class Quiz extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { current: 0, dataSet: [], score: 0, lives: 3, currentSeconds: 10 }
+
+        this.state = { current: 0, dataSet: [], score: 0, lives: 3, currentSeconds: 10, name: '' }
         this.handleClick = this.handleClick.bind(this);
         this.renderTime = this.renderTime.bind(this);
     } 
@@ -22,18 +22,25 @@ export class Quiz extends React.Component {
         fetchAllData().then(allData => {
             this.setState({ dataSet: allData });
             console.log(this.state)
+            if (!this.props.location) {
+                return <p>Loading...</p>
+            }
+            this.setState({ name: this.props.location.state })
         })
     }
 
     handleClick(choice) {
         console.log(choice)
+        console.log(this.state);
         if (choice === this.state.dataSet[this.state.current].correct_answer) {
             this.setState({ score: this.state.score + 10 + this.state.currentSeconds })
         } else {
-            if ( this.state.lives > 1) {
-            this.setState({ lives: this.state.lives - 1 })
+            if (this.state.lives > 1) {
+                this.setState({ lives: this.state.lives - 1 })
             } else {
-                window.alert("Kuolit. 18 000 €");
+                // window.alert("Kuolit. 18 000 €");
+                //TÄHÄN SCOREN JA NIMEN POSTAUS?
+                this.props.history.push('/highscore', this.state.correct)
             }
         }
 
@@ -60,12 +67,12 @@ export class Quiz extends React.Component {
 
     render() {
         return (
-
             <div>
             <div className="progressArea">
                 <Progress currentQuestion={this.state.current} />
             </div>
             <ScoreArea score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
+            <h1>Onnea peliin, {this.state.name}!</h1>
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
             </div>
         )
@@ -172,7 +179,7 @@ const TimeOut = () => <span>Time out!</span>;
 //     )
 // }
 
-ReactDOM.render(
-    <Quiz />,
-    document.getElementById("root")
-)
+// ReactDOM.render(
+//     <Quiz />,
+//     document.getElementById("root")
+// )
