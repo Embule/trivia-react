@@ -15,7 +15,7 @@ function App() {
           <Route path='/quiz' exact component={Quiz} />
         </Switch>
       </Router>
-      <Highscore/>
+    
     </div>
   );
 }

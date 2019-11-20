@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { fetchAllData } from '../service';
+import Highscore from './Highscore';
 
 export class Quiz extends React.Component {
 

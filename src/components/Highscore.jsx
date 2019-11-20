@@ -24,3 +24,15 @@ const Score = ({ refresh, score }) => {
 }
 
 export default Score;
+
+//lisäää pelin loppu///////////////
+// function restartGame(props) {
+//   this.state.lives == 0
+//   this.router.navigateByUrl("/score")
+// }
+// return (
+//   <div>
+//       <Highscore score={props.correct} refresh={this.restartGame}/>
+//   </div>
+// )
+//tähän loppuu lisäys////////////
