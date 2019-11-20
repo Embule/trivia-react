@@ -20,7 +20,6 @@ export default function AnswerList(props) {
         return array;
     }
 
-
     if (!props.dataSet) {
         return <p>Loading...</p>
     }
