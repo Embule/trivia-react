@@ -6,6 +6,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faClock} from '@fortawesome/free-solid-svg-icons';
 
 export default function ScoreArea(props) {
+
     var style = {
         width: "100%",
         display: "block",
@@ -25,7 +26,7 @@ export default function ScoreArea(props) {
         <div style={style} >
             <TotalScore score={props.score} />
             <TotalLives lives={props.lives} />
-            <h2 style={styleC}><FontAwesomeIcon icon={faClock} /> <Countdown date={props.date} renderer={props.renderer}/></h2>
+            <h2 style={styleC}><FontAwesomeIcon icon={faClock} /> <Countdown ref={props.countdownRef} date={props.date} renderer={props.renderer}/></h2>
         </div>
     )
 }
