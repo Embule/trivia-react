@@ -1,7 +1,7 @@
-//import React from 'react';
+import React, { Component } from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faHeart} from '@fortawesome/free-solid-svg-icons';
-import React, { Component } from 'react';
+
 
 export default class TotalLives extends Component {
 
