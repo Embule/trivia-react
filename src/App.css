@@ -68,3 +68,16 @@
 table {
   text-align: center;
 }
+
+/* Gold */
+.row:nth-child(1) {
+  background: gold;
+}
+/* Silver */
+.row:nth-child(2) {
+  background: #c0c0c0;
+}
+/* Bronze */
+.row:nth-child(3) {
+  background: #cd7f32;
+}

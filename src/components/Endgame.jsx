@@ -25,12 +25,11 @@ export default class Highscore extends React.Component {
     
     var sortArray = this.state.scores.sort(function (a, b) { return b.score - a.score });
     var tenArray = sortArray.slice(0, 10)
-    var scorerows = tenArray.map(i => <tr class="row" key={i._id}><td>{i.name}</td><td class="row">{i.score}</td></tr>)
+    var scorerows = tenArray.map(i => <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
     return (
 
       <div className="highscore" align="center">
-        <h1>Tämähän oli helppoa!</h1>
-        <h2>Onnea {this.state.name}, pääsit loppuun ja valmistut Academysta! </h2>
+        <h1>Harmin paikka {this.state.name}, et päässyt loppuun etkä valmistu Academysta. Maksa 18 000€. </h1>
         <h2>Pisteesi: {this.state.score}</h2>
         <h3>Top-lista</h3>
         <table>
