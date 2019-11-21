@@ -28,7 +28,7 @@ export default class Highscore extends React.Component {
     var scorerows = tenArray.map(i => <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
     return (
 
-      <div className="highscore" align="center">
+      <div className="highscore container" align="center">
         <h1>Harmin paikka {this.state.name}, et päässyt loppuun etkä valmistu Academysta.</h1>
         <h3>Lähetämme 18 000 euron laskun postitse kahden viikon sisällä.</h3>
         <h2>Pisteesi: {this.state.score}</h2>

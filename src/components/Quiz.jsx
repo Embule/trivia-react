@@ -91,7 +91,7 @@ export class Quiz extends React.Component {
 //
     render() {
         return (
-            <div>
+            <div className="container">
                 <div className="progressArea">
                     <Progress currentQuestion={this.state.current} />
                 </div>
