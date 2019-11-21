@@ -9,7 +9,7 @@ const scoreUrl = '/api/scores';
 
 export const fetchAllScores = () => {
     return fetch(scoreUrl)
-.then(resp => resp.json())
+        .then(resp => resp.json())
 }
 
 export const postScore = (scores) => {
