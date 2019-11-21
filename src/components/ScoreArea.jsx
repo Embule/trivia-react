@@ -7,26 +7,15 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 
 export default function ScoreArea(props) {
 
-    var style = {
-        width: "100%",
-        display: "block",
-        textAlign: "left",
-        float: "left",
-        padding: "2em"
-    }
 
-    var styleC = {
-        display: "inline-block",
-        padding: "1em",
-        background: "#eee",
-        margin: "0 0 0 2em"
-    }
 
     return (
-        <div style={style} >
+        <div className="scorecontainer" >
             <TotalScore score={props.score} />
             <TotalLives lives={props.lives} />
-            <h2 style={styleC}><FontAwesomeIcon icon={faClock} /> <Countdown ref={props.countdownRef} date={props.date} renderer={props.renderer} /></h2>
+            <div className="scorecomponent">
+                <h2 ><FontAwesomeIcon icon={faClock} /> <Countdown ref={props.countdownRef} date={props.date} renderer={props.renderer} /></h2>
+            </div>
         </div>
     )
 }
