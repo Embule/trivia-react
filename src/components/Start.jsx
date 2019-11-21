@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import * as audio from '../audio';  
 
 export default class Start extends Component {
     state = { name: '' }
@@ -6,6 +7,7 @@ export default class Start extends Component {
         this.setState({ name: e.target.value })
     }
     handleCreateClick = e => {
+        audio.stop("start");
         e.preventDefault();
         if (this.state.name.trim() === '') {
             window.alert("Kerrothan nimesi ennenkuin aloitat pelin.");
@@ -16,6 +18,10 @@ export default class Start extends Component {
 
         console.log('Lets go, ' + this.state.name + '!')
     }
+    componentDidMount() {
+    audio.play("start");
+    }
+
     render() {
         return (
             <div>

@@ -88,7 +88,7 @@ export class Quiz extends React.Component {
             return <span>{seconds}</span>;
         }
     };
-
+//
     render() {
         return (
             <div>
