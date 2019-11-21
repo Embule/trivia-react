@@ -3,6 +3,8 @@ import { fetchAllData } from '../service';
 import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
 import Progress from './Progress';
+import {postScore} from '../service';
+import Highscore from './Highscore';
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -29,8 +31,12 @@ export class Quiz extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.renderTime = this.renderTime.bind(this);
 
+    }
+
+
         this.countdownRef = React.createRef();
     } 
+
 
     componentDidMount() {
         this.fetchDataList();
@@ -67,8 +73,13 @@ export class Quiz extends React.Component {
         this.countdownRef.current.start();
 
         if (this.state.current === 19) {
-                // window.alert("Kuolit. 18 000 €");
-                //TÄHÄN SCOREN JA NIMEN POSTAUS?
+            // addScore = score => {
+            //   postScore(score).then(vastaus => {
+            //     this.fetchScoreList();
+            //   })
+            // }
+            // window.alert("Kuolit. 18 000 €");
+            //TÄHÄN SCOREN JA NIMEN POSTAUS?
             this.props.history.push('/highscore', this.state.correct)
         } else {
             this.setState({ current: this.state.current + 1 })
@@ -91,13 +102,15 @@ export class Quiz extends React.Component {
 
     render() {
         return (
-            <div>
+            <div
             <div className="progressArea">
                 <Progress currentQuestion={this.state.current} />
             </div>
             <ScoreArea countdownRef={this.countdownRef} score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
             <h1>Onnea peliin, {this.state.name}!</h1>
+
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
+                <Highscore addCallback={this.addScore}/>
             </div>
         )
     }
