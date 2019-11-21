@@ -12,14 +12,10 @@ export default class TotalLives extends Component {
         return hearts
     }
     render() {
-        var style = {
-            display: "inline-block",
-            padding: "1em",
-            background: "#eee",
-            margin: "0 0 0 1em"
-        }
+      
         return (
-            <h2 style={style}>{this.listHearts()} </h2>
-        );
+            <div className="scorecomponent">
+            <h2 className="hearts">{this.listHearts()} </h2>
+        </div>);
     }
 }

@@ -30,9 +30,8 @@ export default class Highscore extends React.Component {
 
       <div className="highscore container" align="center">
         <h1>Tämähän oli helppoa!</h1>
-        <h2>Onnea {this.state.name}, pääsit loppuun ja valmistut Academysta! </h2>
-        <h2>Pisteesi: {this.state.score}</h2>
-        <h3>Top-lista</h3>
+        <p>Onnea <b>{this.state.name}</b>, pääsit loppuun ja valmistut Academysta! Sait <b>{this.state.score}</b> pistettä.</p>
+        <h3>🏆 Top-lista 🏆</h3>
         <table>
           <tbody>
             <tr>
@@ -42,8 +41,10 @@ export default class Highscore extends React.Component {
             {scorerows}
           </tbody>
         </table>
-        <a className="btn" id="scorebutton" href="/">Uusi Peli</a>
-      </div>
+        <button className="answerbutton">
+        <a className="scorelink" href="/">Uusi Peli</a>
+     </button> 
+     </div>
     )
   }
 }
