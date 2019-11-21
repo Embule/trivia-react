@@ -10,7 +10,7 @@ export default class Highscore extends React.Component {
 
   componentDidMount() {
     this.fetchScoreList();
-    audio.play("end");
+    audio.play("failEnd");
   }
   //fetch data from the server and sort it 
   fetchScoreList = () => {
