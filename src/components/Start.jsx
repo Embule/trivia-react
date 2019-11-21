@@ -24,12 +24,13 @@ export default class Start extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <form>
-                    <h1>Pelataanko peliä?</h1>
-                    <label htmlFor='name'>Mikä on nimesi?</label><br />
-                    <input type='text' placeholder='Nimi' id='name' autoComplete="off" onChange={this.handleNameChange} required='required' /><br />
-                    <input type='submit' value='Aloita peli' onClick={this.handleCreateClick} />
+                    <h1>Lämpimät onnittelut Academyyn pääsyn johdosta! </h1>
+                    <h3>Tee esi-esitesti ennen koulutuksen alkua. Tee testi niin monta kertaa, että saat kaikki oikein. Lisää alla olevaan laatikkoon nimesi aloittaaksesi testin.</h3>
+                    <input type='text' placeholder='Nimi' id='name' autoComplete="off" onChange={this.handleNameChange} required='required' />
+                    <input type='submit' value='Aloita' onClick={this.handleCreateClick} />
+                    <p><i>Muistathan poistaa node_modules-kansion ennen kuin aloitat pelin.</i></p>
                 </form>
             </div>
         )
