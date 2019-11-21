@@ -25,7 +25,7 @@ export default class Highscore extends React.Component {
     
     var sortArray = this.state.scores.sort(function (a, b) { return b.score - a.score });
     var tenArray = sortArray.slice(0, 10)
-    var scorerows = tenArray.map(i => <tr class="row" key={i._id}><td>{i.name}</td><td class="row">{i.score}</td></tr>)
+    var scorerows = tenArray.map(i => <tr id="row" key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
     return (
 
       <div className="highscore container" align="center">
