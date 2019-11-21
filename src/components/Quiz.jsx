@@ -76,10 +76,12 @@ export class Quiz extends React.Component {
     // Renderer callback with condition
     renderTime = ({ seconds, completed }) => {
         if (completed) {
+            // eslint-disable-next-line
             this.state.currentSeconds = 0;
             // Render a time out text
             return <TimeOut />;
         } else {
+            // eslint-disable-next-line
             this.state.currentSeconds = seconds;
 
             // Render a countdown
