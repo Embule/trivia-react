@@ -13,9 +13,9 @@ export default class Start extends Component {
             window.alert("Kerrothan nimesi ennenkuin aloitat pelin.");
             return;
         }
-        this.props.history.push('/quiz', this.state.name )
+        this.props.history.push('/quiz', this.state.name)
         //nimi highscoreen mutta skippaa pelin läpi
-        
+
         console.log('Lets go, ' + this.state.name + '!')
     }
     componentDidMount() {
