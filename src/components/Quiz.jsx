@@ -3,6 +3,7 @@ import { fetchAllData } from '../service';
 import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
 import Progress from './Progress';
+import {postScore} from '../service'
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -57,6 +58,7 @@ export class Quiz extends React.Component {
                 this.setState({ lives: this.state.lives - 1 })
             } else {
                 this.setState({ lives: this.state.lives - 1 })
+                postScore({name: this.state.name ,score: this.state.score});
                 this.props.history.push({ pathname: '/highscore', score: this.state.score, name: this.state.name })
             }
         }
@@ -71,6 +73,7 @@ export class Quiz extends React.Component {
             // }
             // window.alert("Kuolit. 18 000 €");
             //TÄHÄN SCOREN JA NIMEN POSTAUS?
+            postScore({ name: this.state.name, score: this.state.score });
             this.props.history.push({ pathname: '/highscore', score: this.state.score, name: this.state.name})
         } else {
             this.setState({ current: this.state.current + 1 })
