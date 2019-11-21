@@ -20,6 +20,7 @@ export default class Highscore extends React.Component {
     if (!this.state.scores) {
       return <p>Loading...</p>
     }
+    
     var sortArray = this.state.scores.sort(function (a, b) { return b.score - a.score });
     var scorerows = sortArray.map(i => <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
     return (
