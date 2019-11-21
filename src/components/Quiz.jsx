@@ -59,7 +59,7 @@ export class Quiz extends React.Component {
                 this.setState({ lives: this.state.lives - 1 })
                 // window.alert("Kuolit. 18 000 €");
                 //TÄHÄN SCOREN JA NIMEN POSTAUS?
-                this.props.history.push('/highscore', this.state.correct, this.state.name)
+                this.props.history.push('/highscore', this.state.score, this.state.name)
             }
         }
 
@@ -73,7 +73,7 @@ export class Quiz extends React.Component {
             // }
             // window.alert("Kuolit. 18 000 €");
             //TÄHÄN SCOREN JA NIMEN POSTAUS?
-            this.props.history.push('/highscore', this.state.correct, this.state.name)
+            this.props.history.push('/highscore', this.state.score, this.state.name)
         } else {
             this.setState({ current: this.state.current + 1 })
         }

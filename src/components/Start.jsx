@@ -13,7 +13,7 @@ export default class Start extends Component {
         }
         this.props.history.push('/quiz', this.state.name )
         //nimi highscoreen mutta skippaa pelin läpi
-        // this.props.history.push('/highscore', this.state.name)
+        
         console.log('Lets go, ' + this.state.name + '!')
     }
     render() {

@@ -5,7 +5,7 @@ export default class Highscore extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { scores: [], name: "" }
+    this.state = { scores: [], score: this.props.score}
   }
 
   componentDidMount() {
@@ -19,7 +19,9 @@ export default class Highscore extends React.Component {
       console.log(allScores);
     })
     //added name?
-    this.setState({ name: this.props.location.state })
+    console.log(this.props + "props");
+    console.log(this.state);
+    this.setState({name: this.props.name })
   }
   render() {
     if (!this.state.scores) {
