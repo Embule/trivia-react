@@ -96,12 +96,11 @@ export class Quiz extends React.Component {
                     <Progress currentQuestion={this.state.current} />
                 </div>
                 <ScoreArea countdownRef={this.countdownRef} score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
-                <h1>Onnea peliin, {this.state.name}!</h1>
+                <h3>Onnea peliin, {this.state.name}!</h3>
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
-                {/* <Highscore addCallback={this.addScore}/> */}
             </div>
         )
     }
 }
 
-const TimeOut = () => <span>Time out!</span>;
+const TimeOut = () => <span>0</span>;

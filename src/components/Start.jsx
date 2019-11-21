@@ -24,7 +24,7 @@ export default class Start extends Component {
 
     render() {
         return (
-            <div>
+            <div className="startPage">
                 <form>
                     <h1>Lämpimät onnittelut Academyyn pääsyn johdosta! </h1>
                     <h3>Tee esi-esitesti ennen koulutuksen alkua. Tee testi niin monta kertaa, että saat kaikki oikein. Lisää alla olevaan laatikkoon nimesi aloittaaksesi testin.</h3>
