@@ -59,7 +59,7 @@ export class Quiz extends React.Component {
             } else {
                 this.setState({ lives: this.state.lives - 1 })
                 postScore({ name: this.state.name, score: this.state.score });
-                this.props.history.push({ pathname: '/highscore', score: this.state.score, name: this.state.name })
+                this.props.history.push({ pathname: '/endgame', score: this.state.score, name: this.state.name })
             }
         }
 
