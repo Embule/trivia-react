@@ -21,7 +21,7 @@ export default class Highscore extends React.Component {
       return <p>Loading...</p>
     }
     var sortArray = this.state.scores.sort(function (a, b) { return b.score - a.score });
-    var tenArray = sortArray.slice(0,10)
+    var tenArray = sortArray.slice(0, 10)
     var scorerows = tenArray.map(i => <tr key={i._id}><td>{i.name}</td><td>{i.score}</td></tr>)
     return (
 
@@ -40,5 +40,6 @@ export default class Highscore extends React.Component {
         </table>
         <a className="btn" id="scorebutton" href="/">Uusi Peli</a>
       </div>
-    )}
+    )
   }
+}

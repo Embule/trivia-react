@@ -5,8 +5,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Highscore from './components/Highscore';
 import './App.css';
 
-
-
 function App() {
   return (
     <div className="App">
@@ -14,7 +12,7 @@ function App() {
         <Switch>
           <Route path='/' exact component={Start} />
           <Route path='/quiz' exact component={Quiz} />
-          <Route path='/highscore' exact component={Highscore}/>
+          <Route path='/highscore' exact component={Highscore} />
         </Switch>
       </Router>
     </div>
