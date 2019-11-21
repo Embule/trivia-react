@@ -13,7 +13,6 @@ export default function QuizArea(props) {
     }
     return (
         <div style={style}>
-            <h2>Kysymys: </h2>
             <Question dataSet={props.dataSet} />
             <AnswerList dataSet={props.dataSet} handleClick={props.handleClick} />
         </div>

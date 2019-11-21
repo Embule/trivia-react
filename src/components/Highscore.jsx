@@ -28,7 +28,8 @@ export default class Highscore extends React.Component {
     return (
 
       <div className="highscore" align="center">
-        <h1>Onnea {this.state.name}, pääsit loppuun ja valmistut Academysta! </h1>
+        <h1>Tämähän oli helppoa!</h1>
+        <h2>Onnea {this.state.name}, pääsit loppuun ja valmistut Academysta! </h2>
         <h2>Pisteesi: {this.state.score}</h2>
         <h3>Top-lista</h3>
         <table>
