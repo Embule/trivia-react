@@ -35,6 +35,7 @@ export class Quiz extends React.Component {
 
     componentDidMount() {
         this.fetchDataList();
+        audio.stop("start");
     }
 
     fetchDataList = () => {
@@ -96,7 +97,7 @@ export class Quiz extends React.Component {
             return <span>{seconds}</span>;
         }
     };
-
+//
     render() {
         return (
             <div>

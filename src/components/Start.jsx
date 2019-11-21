@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import * as audio from '../audio';  
 
 export default class Start extends Component {
     state = { name: '' }
@@ -16,6 +17,10 @@ export default class Start extends Component {
         
         console.log('Lets go, ' + this.state.name + '!')
     }
+    componentDidMount() {
+    audio.play("start");
+    }
+
     render() {
         return (
             <div>
