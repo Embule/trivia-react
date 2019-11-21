@@ -3,7 +3,8 @@ import { fetchAllData } from '../service';
 import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
 import Progress from './Progress';
-import { postScore } from '../service'
+import {postScore} from '../service';
+import * as audio from '../audio';
 
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -50,9 +51,11 @@ export class Quiz extends React.Component {
     handleClick(choice) {
         if (choice === this.state.dataSet[this.state.current].correct_answer) {
             this.setState({ score: this.state.score + 10 + this.state.currentSeconds });
+            audio.play("correct");
         } else {
             if (this.state.lives > 1) {
                 this.setState({ lives: this.state.lives - 1 })
+                audio.play("fail");
             } else {
                 this.setState({ lives: this.state.lives - 1 })
                 postScore({ name: this.state.name, score: this.state.score });
