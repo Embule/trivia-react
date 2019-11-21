@@ -1,5 +1,6 @@
 import React from 'react';
 import { fetchAllScores } from '../service';
+import * as audio from '../audio';
 export default class Highscore extends React.Component {
 
   constructor(props) {
@@ -9,6 +10,7 @@ export default class Highscore extends React.Component {
 
   componentDidMount() {
     this.fetchScoreList();
+    audio.play("end");
   }
   //fetch data from the server and sort it 
   fetchScoreList = () => {

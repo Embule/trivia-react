@@ -7,6 +7,7 @@ export default class Start extends Component {
         this.setState({ name: e.target.value })
     }
     handleCreateClick = e => {
+        audio.stop("start");
         e.preventDefault();
         if (this.state.name.trim() === '') {
             window.alert("Kerrothan nimesi ennenkuin aloitat pelin.");

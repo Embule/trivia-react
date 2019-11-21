@@ -35,7 +35,6 @@ export class Quiz extends React.Component {
 
     componentDidMount() {
         this.fetchDataList();
-        audio.stop("start");
     }
 
     fetchDataList = () => {
