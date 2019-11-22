@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Question(props) {
-    
+
     if (!props.dataSet) {
         return <p>Loading...</p>
     }

@@ -14,7 +14,7 @@ function App() {
           <Route path='/' exact component={Start} />
           <Route path='/quiz' exact component={Quiz} />
           <Route path='/highscore' exact component={Highscore} />
-          <Route path='/endgame' exact component={Endgame}/>
+          <Route path='/endgame' exact component={Endgame} />
         </Switch>
       </Router>
     </div>
