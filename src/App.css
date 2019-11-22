@@ -21,6 +21,10 @@
   color: #09d3ac;
 }
 
+button, input {
+  outline: none;
+} 
+
 body {
   background-color: #eee;
   background-image: url("background.jpg");
@@ -31,6 +35,7 @@ body {
 .progressq {
   color: rgb(177, 174, 174);
 }
+
 .progress {
   position: relative;
   transition: width .4s ease;
@@ -64,10 +69,6 @@ body {
 
 }
 
-.answerbutton {
-  width: 100%;
-}
-
 .questioncounter {
   position: absolute;
   right: 5px;
@@ -88,8 +89,8 @@ input[type=submit] {
 }
 
 #startbutton:hover, .answerbutton:hover {
-background-color: #ff7f07;
-cursor: pointer;
+  background-color: #ff7f07;
+  cursor: pointer;
 }
 
 .answerbutton {
@@ -110,6 +111,7 @@ cursor: pointer;
   text-decoration: none;
   color: white;
 }
+
 #startbutton {
   background: #fcb50d;
   margin: 10px 0;
@@ -125,7 +127,11 @@ cursor: pointer;
 
 .nameinput {
   border-radius: 5px;
-  padding: 5px 0;
+  padding: 5px 0px;
+  padding-inline-start: 5px;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;      
   border: 1px solid gray;
   width: 100%;
 }
@@ -133,14 +139,14 @@ cursor: pointer;
 #scorebutton {
   text-decoration: none;
   display: block;
-    width: 115px;
-    height: 25px;
-    background: #4E9CAF;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
+  width: 115px;
+  height: 25px;
+  background: #4E9CAF;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
 }
 
 #scorebutton:hover {
@@ -151,15 +157,17 @@ table {
   text-align: center;
   border-collapse: collapse;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 #row:nth-child(2) {
   background: rgba(255, 217, 0, 0.664);
 }
+
 #row:nth-child(3) {
   background: #c0c0c0ce;
 }
+
 #row:nth-child(4) {
   background: #cd8032af ;
 }

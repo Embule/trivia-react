@@ -3,7 +3,7 @@ import { fetchAllData } from '../service';
 import QuizArea from './QuizArea';
 import ScoreArea from './ScoreArea';
 import Progress from './Progress';
-import {postScore} from '../service';
+import { postScore } from '../service';
 import * as audio from '../audio';
 
 function shuffle(array) {
@@ -88,7 +88,7 @@ export class Quiz extends React.Component {
             return <span>{seconds}</span>;
         }
     };
-//
+    //
     render() {
         return (
             <div className="container">
@@ -96,7 +96,6 @@ export class Quiz extends React.Component {
                     <Progress currentQuestion={this.state.current} />
                 </div>
                 <ScoreArea countdownRef={this.countdownRef} score={this.state.score} lives={this.state.lives} date={Date.now() + 10000} renderer={this.renderTime} />
-                {/* <h3>Onnea peliin, {this.state.name}!</h3> */}
                 <QuizArea handleClick={this.handleClick} dataSet={this.state.dataSet[this.state.current]} />
             </div>
         )

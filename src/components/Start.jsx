@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import * as audio from '../audio';  
+import * as audio from '../audio';
 
 export default class Start extends Component {
     state = { name: '' }
+    
     handleNameChange = (e) => {
         this.setState({ name: e.target.value })
     }
@@ -11,15 +12,14 @@ export default class Start extends Component {
         e.preventDefault();
         if (this.state.name.trim() === '') {
             window.alert("Kerrothan nimesi ennenkuin aloitat pelin.");
+            audio.play("start"); 
             return;
         }
         this.props.history.push('/quiz', this.state.name)
-        //nimi highscoreen mutta skippaa pelin läpi
-
         console.log('Lets go, ' + this.state.name + '!')
     }
     componentDidMount() {
-    audio.play("start");
+        audio.play("start");
     }
 
     render() {

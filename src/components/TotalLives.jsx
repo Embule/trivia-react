@@ -12,10 +12,11 @@ export default class TotalLives extends Component {
         return hearts
     }
     render() {
-      
+
         return (
             <div className="scorecomponent">
-            <h2 className="hearts">{this.listHearts()} </h2>
-        </div>);
+                <h2 className="hearts">{this.listHearts()}</h2>
+            </div>
+        );
     }
 }

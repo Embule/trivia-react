@@ -2,7 +2,7 @@ import React from 'react'
 import Answer from './Answer'
 
 export default function AnswerList(props) {
-    var answers = []
+    var answers = [];
 
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
